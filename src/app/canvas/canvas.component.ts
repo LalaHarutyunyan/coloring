@@ -20,7 +20,7 @@ export class CanvasComponent implements OnInit {
     ECircleCount.MAX, // 400
   ];
   selectedSize: number = this.canvasSizes[0];
-  currentColor: string = 'white';
+  currentColor: string = "#fff";
 
   constructor(private storage: LocalStorageService) { }
 
@@ -39,7 +39,12 @@ export class CanvasComponent implements OnInit {
   }
 
   onCircleClick(circle: ICircle): void {
+     if(circle.color !== this.currentColor){
     this.circles[circle.id].color = this.currentColor;
+    }
+    else{
+    this.circles[circle.id].color = 'white';
+    }
   }
 
   onResetColor(): void {
